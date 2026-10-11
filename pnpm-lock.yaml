@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      prettier:
-        specifier: ^3.9.10
-        version: 3.9.10
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.14
@@ -27,6 +23,9 @@ importers:
       lint-staged:
         specifier: ^17.0.5
         version: 17.6.0
+      prettier:
+        specifier: ^3.9.10
+        version: 3.9.10
 
 packages:
 
