@@ -8,38 +8,25 @@ OEI repositories gate pull requests on open source license compliance. Rather th
 
 ## How repositories use this
 
-**Primary path — GitHub Actions.** Any OEI repo's validation workflow references this repo directly via [`oss-review-toolkit/ort-ci-github-action`](https://github.com/oss-review-toolkit/ort-ci-github-action)'s `ort-config-repository` input, pinned to a released git tag (not `main` — see [Making changes](#making-changes) below for why that matters):
-
-```yaml
-- uses: oss-review-toolkit/ort-ci-github-action@v1
-  with:
-    ort-config-repository: https://github.com/openendurance/config-ort
-    # pin to a specific tag once this repo has its first release
-```
-
-**Secondary path — npm.** Published as [`@openendurance/config-ort`](https://www.npmjs.com/package/@openendurance/config-ort) for any tooling that needs to read these files directly from Node rather than through the ORT Action.
-
-Both paths exist independently — see the note in [Making changes](#making-changes) about keeping them in sync.
+See [`docs/arch/`](docs/arch/README.md) for how downstream repos actually consume this config (the GitHub Actions / `ort-config-repository` path and the npm package path), and the risk of letting the two drift out of sync.
 
 ## What's here
 
 All configuration lives in `src/`:
 
-| File | Purpose |
-|---|---|
-| `config.yml` | Global ORT settings — analyzer and evaluator behavior |
+| File                          | Purpose                                                                            |
+| ----------------------------- | ---------------------------------------------------------------------------------- |
+| `config.yml`                  | Global ORT settings — analyzer and evaluator behavior                              |
 | `license-classifications.yml` | License categories (permissive, copyleft, etc.) that `evaluator.rules.kts` acts on |
-| `evaluator.rules.kts` | Policy logic — maps categories to Approve / Flag / Deny |
-| `curations.yml` | Corrections for invalid or missing package license metadata |
-| `resolutions.yml` | Documented, reviewed exceptions to specific flagged violations |
+| `evaluator.rules.kts`         | Policy logic — maps categories to Approve / Flag / Deny                            |
+| `curations.yml`               | Corrections for invalid or missing package license metadata                        |
+| `resolutions.yml`             | Documented, reviewed exceptions to specific flagged violations                     |
 
-`license-classifications.yml` is the one most worth reading first if you're trying to understand *why* something was flagged — it's a small, deliberately-maintained list rather than an auto-generated one, and its categories (and the reasoning behind each) are documented inline in the file itself.
+`license-classifications.yml` is the one most worth reading first if you're trying to understand _why_ something was flagged — it's a small, deliberately-maintained list rather than an auto-generated one, and its categories (and the reasoning behind each) are documented inline in the file itself.
 
 ## Making changes
 
 Changes to `curations.yml` and `evaluator.rules.kts` in particular affect every OEI repository's CI at once — they're CODEOWNERS-reviewed, not self-service. See the org-wide [CONTRIBUTING guide](https://github.com/openendurance/.github/blob/main/CONTRIBUTING.md) for the general process.
-
-One thing specific to this repo worth knowing: it has two independent consumption paths (the git-tag reference above, and the npm package). Bumping the npm version without also tagging the corresponding git commit — or vice versa — means downstream repos using different consumption paths could silently see different policy states. Keep a release's npm publish and its git tag in lockstep.
 
 ## Development
 
