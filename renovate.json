@@ -1,0 +1,53 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended"],
+	"baseBranches": ["develop"],
+	"dependencyDashboard": true,
+	"prConcurrentLimit": 5,
+	"prHourlyLimit": 2,
+	"schedule": ["before 3am on monday"],
+	"timezone": "America/Denver",
+	"packageRules": [
+		{
+			"groupName": "turbo",
+			"matchPackagePatterns": ["^turbo", "^@turbo"]
+		},
+		{
+			"groupName": "all non-major devDependencies (patch)",
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["patch"],
+			"automerge": true,
+			"automergeType": "branch",
+			"automergeSchedule": ["before 3am on monday"]
+		},
+		{
+			"groupName": "all non-major devDependencies (minor)",
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["minor"]
+		},
+		{
+			"groupName": "root tooling (patch auto-merge)",
+			"matchPackageNames": [
+				"@biomejs/biome",
+				"@changesets/changelog-github",
+				"@changesets/cli",
+				"@types/jest",
+				"@types/lodash",
+				"@types/node",
+				"husky",
+				"istanbul-merge",
+				"jest",
+				"lint-staged",
+				"nyc",
+				"ts-jest",
+				"ts-node",
+				"turbo",
+				"typescript"
+			],
+			"matchUpdateTypes": ["patch"],
+			"automerge": true,
+			"automergeType": "branch",
+			"automergeSchedule": ["before 3am on monday"]
+		}
+	]
+}

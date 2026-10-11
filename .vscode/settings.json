@@ -1,0 +1,13 @@
+{
+	"editor.formatOnSave": true,
+	"[json][jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[yaml][markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true
+	}
+}
