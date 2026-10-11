@@ -14,10 +14,10 @@ Operational procedures belong in `ops/`.
 
 ## Contents
 
-| Document | Purpose |
-| -------- | ------- |
-
-No architecture documents are currently tracked here.
+| Document                                               | Purpose                                                                                                                                                     |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`consumption-model.md`](./consumption-model.md)       | The two paths downstream repos use to consume this config (GitHub Actions vs. npm), how each works, and the risk of letting them drift out of sync          |
+| [`policy-file-contract.md`](./policy-file-contract.md) | How the five `src/` files relate as a system; the hard rule distinguishing `curations.yml` from `license-classifications.yml`; where `resolutions.yml` fits |
 
 ## Authorship
 

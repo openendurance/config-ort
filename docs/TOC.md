@@ -13,6 +13,8 @@ Canonical entry point for `config-ort` documentation. Update this file whenever 
 ## Architecture
 
 - [Architecture guide](./arch/README.md)
+- [Consumption model (GitHub Actions vs. npm)](./arch/consumption-model.md)
+- [Policy file contract (curations vs. classifications vs. resolutions)](./arch/policy-file-contract.md)
 
 ## Generated
 
