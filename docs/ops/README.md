@@ -14,10 +14,9 @@ Decisions about operational approach belong in `adr/`.
 
 ## Contents
 
-| Document | Purpose |
-| -------- | ------- |
-
-No operational documents are currently tracked here.
+| Document                                   | Purpose                                                                                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`commit-signing.md`](./commit-signing.md) | DCO sign-off vs. cryptographic signature — the two unrelated commit requirements, how to set up SSH signing, and how to fix commits missing either |
 
 ## Authorship
 

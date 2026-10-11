@@ -21,6 +21,7 @@ Canonical entry point for `config-ort` documentation. Update this file whenever 
 ## Operations
 
 - [Operations guide](./ops/README.md)
+- [Commit signing (DCO + cryptographic signatures)](./ops/commit-signing.md)
 
 ## Registry
 
