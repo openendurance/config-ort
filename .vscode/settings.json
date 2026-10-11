@@ -1,5 +1,6 @@
 {
 	"editor.formatOnSave": true,
+	"json.schemaDownload.enable": true,
 	"[json][jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
@@ -10,5 +11,9 @@
 		"**/.git": true,
 		"**/.DS_Store": true
 	},
-	"cSpell.words": ["openendurance"]
+	"cSpell.words": ["Cargile", "curations", "openendurance"],
+	"json.schemaDownload.trustedDomains": {
+		"https://json.schemastore.org/": true,
+		"https://unpkg.com/@changesets": true
+	}
 }
