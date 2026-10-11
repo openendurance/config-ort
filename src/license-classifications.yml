@@ -6,128 +6,128 @@
 # by omission — evaluator.rules.kts treats that as Flag, never silent Approve.
 
 categories:
-  # --- Primary categories ---
-  - name: permissive
-    description: >
-      Long-established, broadly recognized, minimal-obligation licenses.
-      Auto-approved.
+    # --- Primary categories ---
+    - name: permissive
+      description: >
+          Long-established, broadly recognized, minimal-obligation licenses.
+          Auto-approved.
 
-  - name: permissive-emerging
-    description: >
-      Permissive in substance, but newer or less broadly litigated/recognized
-      than the `permissive` set. Approved, but kept visually distinct in this
-      file so a reader understands why it's here rather than assuming an
-      oversight.
+    - name: permissive-emerging
+      description: >
+          Permissive in substance, but newer or less broadly litigated/recognized
+          than the `permissive` set. Approved, but kept visually distinct in this
+          file so a reader understands why it's here rather than assuming an
+          oversight.
 
-  - name: copyleft-with-linking-exception
-    description: >
-      Copyleft licenses carrying a linking/classpath exception that
-      neutralizes the copyleft requirement for dependency use (as opposed to
-      modifying and redistributing the licensed code itself). Treated as
-      permissive for OEI's use.
+    - name: copyleft-with-linking-exception
+      description: >
+          Copyleft licenses carrying a linking/classpath exception that
+          neutralizes the copyleft requirement for dependency use (as opposed to
+          modifying and redistributing the licensed code itself). Treated as
+          permissive for OEI's use.
 
-  - name: attribution-content
-    description: >
-      Content/data licenses, not software licenses (e.g. the Creative Commons
-      family). Carries attribution obligations distinct in kind from software
-      license conditions. Approved for build-time/non-distributed use;
-      flagged if found in anything actually shipped to end users.
+    - name: attribution-content
+      description: >
+          Content/data licenses, not software licenses (e.g. the Creative Commons
+          family). Carries attribution obligations distinct in kind from software
+          license conditions. Approved for build-time/non-distributed use;
+          flagged if found in anything actually shipped to end users.
 
-  - name: public-domain
-    description: >
-      No meaningful restrictions at all (public-domain dedications and
-      equivalents).
+    - name: public-domain
+      description: >
+          No meaningful restrictions at all (public-domain dedications and
+          equivalents).
 
-  - name: weak-copyleft
-    description: >
-      File/module-scoped copyleft (LGPL, MPL, EPL). Does not require the
-      consuming project to adopt the same license, but does impose
-      obligations on modifications to the licensed files themselves. Flagged
-      for review, not auto-approved — matters more for `core` as a
-      redistributed library than it would for an internal tool.
+    - name: weak-copyleft
+      description: >
+          File/module-scoped copyleft (LGPL, MPL, EPL). Does not require the
+          consuming project to adopt the same license, but does impose
+          obligations on modifications to the licensed files themselves. Flagged
+          for review, not auto-approved — matters more for `core` as a
+          redistributed library than it would for an internal tool.
 
-  - name: strong-copyleft
-    description: >
-      Project-scoped copyleft (GPL, AGPL). Denied by default for OEI's
-      Apache-2.0 library/platform code.
+    - name: strong-copyleft
+      description: >
+          Project-scoped copyleft (GPL, AGPL). Denied by default for OEI's
+          Apache-2.0 library/platform code.
 
-  - name: unknown
-    description: >
-      Default bucket for anything not explicitly categorized below. Always
-      flagged — never silently approved or denied.
+    - name: unknown
+      description: >
+          Default bucket for anything not explicitly categorized below. Always
+          flagged — never silently approved or denied.
 
-  # --- Behavioral (additive) categories ---
-  - name: include-in-notice-file
-    description: License text must be reproduced in a NOTICE file of distributed artifacts.
+    # --- Behavioral (additive) categories ---
+    - name: include-in-notice-file
+      description: License text must be reproduced in a NOTICE file of distributed artifacts.
 
-  - name: patent-license
-    description: License includes an express patent grant (and, for some, a patent-retaliation clause).
+    - name: patent-license
+      description: License includes an express patent grant (and, for some, a patent-retaliation clause).
 
 categorizations:
-  # permissive
-  - id: MIT
-    categories: [permissive]
-  - id: ISC
-    categories: [permissive]
-  - id: 0BSD
-    categories: [permissive]
-  - id: BSD-2-Clause
-    categories: [permissive]
-  - id: BSD-3-Clause
-    categories: [permissive]
-  - id: Apache-2.0
-    categories: [permissive, include-in-notice-file, patent-license]
+    # permissive
+    - id: MIT
+      categories: [permissive]
+    - id: ISC
+      categories: [permissive]
+    - id: 0BSD
+      categories: [permissive]
+    - id: BSD-2-Clause
+      categories: [permissive]
+    - id: BSD-3-Clause
+      categories: [permissive]
+    - id: Apache-2.0
+      categories: [permissive, include-in-notice-file, patent-license]
 
-  # permissive-emerging
-  - id: BlueOak-1.0.0
-    categories: [permissive-emerging]
+    # permissive-emerging
+    - id: BlueOak-1.0.0
+      categories: [permissive-emerging]
 
-  # copyleft-with-linking-exception
-  - id: GPL-2.0-only WITH Classpath-exception-2.0
-    categories: [copyleft-with-linking-exception]
-  - id: GPL-3.0-only WITH Classpath-exception-2.0
-    categories: [copyleft-with-linking-exception]
+    # copyleft-with-linking-exception
+    - id: GPL-2.0-only WITH Classpath-exception-2.0
+      categories: [copyleft-with-linking-exception]
+    - id: GPL-3.0-only WITH Classpath-exception-2.0
+      categories: [copyleft-with-linking-exception]
 
-  # attribution-content
-  - id: CC-BY-4.0
-    categories: [attribution-content]
-  - id: CC-BY-3.0
-    categories: [attribution-content]
+    # attribution-content
+    - id: CC-BY-4.0
+      categories: [attribution-content]
+    - id: CC-BY-3.0
+      categories: [attribution-content]
 
-  # public-domain
-  - id: Unlicense
-    categories: [public-domain]
-  - id: CC0-1.0
-    categories: [public-domain]
-  - id: WTFPL
-    categories: [public-domain]
+    # public-domain
+    - id: Unlicense
+      categories: [public-domain]
+    - id: CC0-1.0
+      categories: [public-domain]
+    - id: WTFPL
+      categories: [public-domain]
 
-  # weak-copyleft
-  - id: LGPL-2.1-only
-    categories: [weak-copyleft, include-in-notice-file]
-  - id: LGPL-2.1-or-later
-    categories: [weak-copyleft, include-in-notice-file]
-  - id: LGPL-3.0-only
-    categories: [weak-copyleft, include-in-notice-file]
-  - id: LGPL-3.0-or-later
-    categories: [weak-copyleft, include-in-notice-file]
-  - id: MPL-2.0
-    categories: [weak-copyleft, include-in-notice-file]
-  - id: EPL-1.0
-    categories: [weak-copyleft, include-in-notice-file]
-  - id: EPL-2.0
-    categories: [weak-copyleft, include-in-notice-file]
+    # weak-copyleft
+    - id: LGPL-2.1-only
+      categories: [weak-copyleft, include-in-notice-file]
+    - id: LGPL-2.1-or-later
+      categories: [weak-copyleft, include-in-notice-file]
+    - id: LGPL-3.0-only
+      categories: [weak-copyleft, include-in-notice-file]
+    - id: LGPL-3.0-or-later
+      categories: [weak-copyleft, include-in-notice-file]
+    - id: MPL-2.0
+      categories: [weak-copyleft, include-in-notice-file]
+    - id: EPL-1.0
+      categories: [weak-copyleft, include-in-notice-file]
+    - id: EPL-2.0
+      categories: [weak-copyleft, include-in-notice-file]
 
-  # strong-copyleft
-  - id: GPL-2.0-only
-    categories: [strong-copyleft]
-  - id: GPL-2.0-or-later
-    categories: [strong-copyleft]
-  - id: GPL-3.0-only
-    categories: [strong-copyleft]
-  - id: GPL-3.0-or-later
-    categories: [strong-copyleft]
-  - id: AGPL-3.0-only
-    categories: [strong-copyleft]
-  - id: AGPL-3.0-or-later
-    categories: [strong-copyleft]
+    # strong-copyleft
+    - id: GPL-2.0-only
+      categories: [strong-copyleft]
+    - id: GPL-2.0-or-later
+      categories: [strong-copyleft]
+    - id: GPL-3.0-only
+      categories: [strong-copyleft]
+    - id: GPL-3.0-or-later
+      categories: [strong-copyleft]
+    - id: AGPL-3.0-only
+      categories: [strong-copyleft]
+    - id: AGPL-3.0-or-later
+      categories: [strong-copyleft]
