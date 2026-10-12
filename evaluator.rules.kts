@@ -159,7 +159,7 @@ val ruleSet = ruleSet(ortResult, licenseInfoResolver) {
             -isExcluded()
         }
 
-        licenseRule("WEAK_COPYLEFT_LICENSE", LicenseView.CONCLUDED_OR_DECLARED_OR_DETECTED) {
+        licenseRule("WEAK_COPYLEFT_LICENSE", LicenseView.CONCLUDED_OR_DECLARED_AND_DETECTED) {
             require {
                 -isExcluded()
                 +isWeakCopyleft()
