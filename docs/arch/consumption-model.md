@@ -61,13 +61,11 @@ actual consumer here.
 
 ## The sync risk
 
-These two paths are **versioned independently** — nothing technically
-enforces that an npm version and a git tag correspond to the same content.
-A release that publishes a new npm version without also tagging the
-matching commit (or vice versa) means a repo consuming via GitHub Actions
-and a repo consuming via npm could be looking at genuinely different policy
-states at the same point in time, with no error or warning from either
-side — it would just silently diverge.
+These two paths use different version identifiers, but the configured Changesets
+workflow couples them: `changeset publish` creates the package's git tag, and
+`changesets/action@v1` creates the corresponding GitHub release from the same
+checked-out commit. They can drift only if someone publishes or tags outside
+that supported release workflow.
 
 **At release time:** a release is only complete once both the git tag and
 the npm publish point at the same commit. The release workflow
