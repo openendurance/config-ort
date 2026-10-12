@@ -1,1 +1,36 @@
-*                  	@kcargile
+# CODEOWNERS for config-ort
+#
+# GitHub evaluates this file top-to-bottom; the LAST matching pattern wins,
+# not the most specific. Keep broad rules first, narrower overrides below —
+# reversing this order silently defeats the more specific rules.
+#
+# Teams referenced below must be visible (not secret) and hold at least
+# Write access on this repo, or CODEOWNERS silently ignores them.
+
+# Default owner for anything not matched more specifically below.
+*                                       @openendurance/maintainers
+
+# General engineering surface — tooling, docs, routine CI, agent config.
+/.vscode/                              @openendurance/engineering
+/.husky/                               @openendurance/engineering
+/.editorconfig                         @openendurance/engineering
+/biome.json                            @openendurance/engineering
+/lint-staged.config.mjs                @openendurance/engineering
+/renovate.json                         @openendurance/engineering
+/docs/                                 @openendurance/engineering
+/AGENTS.md                             @openendurance/engineering
+/CLAUDE.md                             @openendurance/engineering
+/.github/workflows/validate.yml        @openendurance/engineering
+/.changeset/*.md                       @openendurance/engineering
+
+# Policy surface — this is what every OEI repo's CI actually reads.
+# Changes here affect every downstream repo on its next CI run.
+/src/                                   @openendurance/maintainers
+
+# Release & governance surface — publishing, licensing, and the
+# CODEOWNERS routing itself.
+/.github/workflows/release.yml         @openendurance/maintainers
+/.changeset/config.json                @openendurance/maintainers
+/package.json                          @openendurance/maintainers
+/LICENSE                               @openendurance/maintainers
+/CODEOWNERS                            @openendurance/maintainers
