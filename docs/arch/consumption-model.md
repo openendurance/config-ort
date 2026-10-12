@@ -15,8 +15,8 @@ How downstream OEI repositories actually consume this repo's configuration, and 
 ```yaml
 - uses: oss-review-toolkit/ort-ci-github-action@v1
   with:
-      ort-config-repository: https://github.com/openendurance/config-ort
-      # pinned to a specific tag, e.g. @v1.2.0 — never @develop or @main
+    ort-config-repository: https://github.com/openendurance/config-ort
+    ort-config-revision: v1.2.0
 ```
 
 The Action clones this repo at the referenced ref into the directory ORT
