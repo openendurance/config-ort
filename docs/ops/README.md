@@ -14,9 +14,10 @@ Decisions about operational approach belong in `adr/`.
 
 ## Contents
 
-| Document                                   | Purpose                                                                                                                                            |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`commit-signing.md`](./commit-signing.md) | DCO sign-off vs. cryptographic signature — the two unrelated commit requirements, how to set up SSH signing, and how to fix commits missing either |
+| Document                                                         | Purpose                                                                                                                                            |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`commit-signing.md`](./commit-signing.md)                       | DCO sign-off vs. cryptographic signature — the two unrelated commit requirements, how to set up SSH signing, and how to fix commits missing either |
+| [`release-workflow-settings.md`](./release-workflow-settings.md) | Required GitHub Actions permissions at enterprise, org, and repo scope for Changesets release PR creation, npm publish, tags, and GitHub Releases  |
 
 ## Authorship
 
