@@ -9,20 +9,30 @@ mechanism) to decide which open-source licenses are acceptable in their
 dependency trees. There is no application code here — only configuration.
 
 **This repo is high blast-radius relative to its size.** A change to
-`src/curations.yml` or `src/evaluator.rules.kts` can silently change what
+`curations.yml` or `evaluator.rules.kts` can silently change what
 passes or fails CI in every other OEI repository the next time they pull a
 new tag. Treat edits here with more caution than the line count would
 suggest.
 
+**The five policy files live at the repo root, not under `src/`** — unlike
+every other OEI repo's convention. This is deliberate, not an
+inconsistency: ORT's default `$ORT_CONFIG_DIR` lookup expects these exact
+filenames directly at the top level of whatever gets cloned via
+`ort-config-repository`, with no subdirectory traversal. Moving them into
+`src/` previously broke the primary consumption path for every downstream
+repo silently. Do not "fix" this back into `src/` for consistency without
+first confirming the Action's config-loading mechanism actually supports a
+subdirectory.
+
 ## File map
 
-| File                              | Purpose                                                                                                                                                                                           |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/config.yml`                  | Global ORT analyzer/evaluator settings                                                                                                                                                            |
-| `src/license-classifications.yml` | License categories (permissive, copyleft, etc.) — small and hand-maintained, not auto-generated                                                                                                   |
-| `src/evaluator.rules.kts`         | Policy logic — maps categories to Approve/Flag/Deny. **Kotlin.** Nobody on the team currently knows Kotlin well; be conservative, explain changes clearly, and prefer minimal diffs over rewrites |
-| `src/curations.yml`               | Corrections to _wrong or missing_ package license metadata — not a policy tool                                                                                                                    |
-| `src/resolutions.yml`             | Documented exceptions to a specific flagged violation on a specific package/version                                                                                                               |
+| File                          | Purpose                                                                                                                                                                                           |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config.yml`                  | Global ORT analyzer/evaluator settings                                                                                                                                                            |
+| `license-classifications.yml` | License categories (permissive, copyleft, etc.) — small and hand-maintained, not auto-generated                                                                                                   |
+| `evaluator.rules.kts`         | Policy logic — maps categories to Approve/Flag/Deny. **Kotlin.** Nobody on the team currently knows Kotlin well; be conservative, explain changes clearly, and prefer minimal diffs over rewrites |
+| `curations.yml`               | Corrections to _wrong or missing_ package license metadata — not a policy tool                                                                                                                    |
+| `resolutions.yml`             | Documented exceptions to a specific flagged violation on a specific package/version                                                                                                               |
 
 **Do not conflate `curations.yml` and `license-classifications.yml`.** If a
 package's license is correctly detected but the question is whether OEI
@@ -77,5 +87,5 @@ wrong reason and breaks on the next related change.
 Apache-2.0 licensed. Contribution process, code of conduct, and security
 reporting are defined at the org level, not duplicated here — see
 [openendurance/.github](https://github.com/openendurance/.github). Changes
-to `src/curations.yml` and `src/evaluator.rules.kts` specifically require
+to `curations.yml` and `evaluator.rules.kts` specifically require
 CODEOWNERS review and should not be treated as routine.

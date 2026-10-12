@@ -6,7 +6,7 @@ Current-state reference documentation for `config-ort`.
 
 Documents that answer "how does this system work right now?" — structure, contracts, constraints, and integration points. These are living documents; update them as the system evolves.
 
-This repo has no runtime architecture in the usual sense — no services, no API contracts. What belongs here instead: how downstream OEI repos actually consume these config files (the `ort-config-repository` mechanism, the npm package path, and how the two relate), and the structural contract between the five `src/` files themselves (what `curations.yml` is for versus `license-classifications.yml`, and why that distinction matters).
+This repo has no runtime architecture in the usual sense — no services, no API contracts. What belongs here instead: how downstream OEI repos actually consume these config files (the `ort-config-repository` mechanism, the npm package path, and how the two relate), and the structural contract between the five policy files themselves (what `curations.yml` is for versus `license-classifications.yml`, and why that distinction matters).
 
 Decisions about _why_ the system is structured this way belong in `adr/`.
 
@@ -17,7 +17,7 @@ Operational procedures belong in `ops/`.
 | Document                                               | Purpose                                                                                                                                                     |
 | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`consumption-model.md`](./consumption-model.md)       | The two paths downstream repos use to consume this config (GitHub Actions vs. npm), how each works, and the risk of letting them drift out of sync          |
-| [`policy-file-contract.md`](./policy-file-contract.md) | How the five `src/` files relate as a system; the hard rule distinguishing `curations.yml` from `license-classifications.yml`; where `resolutions.yml` fits |
+| [`policy-file-contract.md`](./policy-file-contract.md) | How the five policy files relate as a system; the hard rule distinguishing `curations.yml` from `license-classifications.yml`; where `resolutions.yml` fits |
 
 ## Authorship
 

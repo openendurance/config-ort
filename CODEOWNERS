@@ -23,9 +23,14 @@
 /.github/workflows/validate.yml        @openendurance/engineering
 /.changeset/*.md                       @openendurance/engineering
 
-# Policy surface — this is what every OEI repo's CI actually reads.
+# Policy surface — this is what every OEI repo's CI actually reads, and
+# what ORT's default $ORT_CONFIG_DIR lookup requires at the repo root.
 # Changes here affect every downstream repo on its next CI run.
-/src/                                   @openendurance/maintainers
+/config.yml                            @openendurance/maintainers
+/curations.yml                         @openendurance/maintainers
+/evaluator.rules.kts                   @openendurance/maintainers
+/license-classifications.yml           @openendurance/maintainers
+/resolutions.yml                       @openendurance/maintainers
 
 # Release & governance surface — publishing, licensing, and the
 # CODEOWNERS routing itself.

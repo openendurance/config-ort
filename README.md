@@ -12,7 +12,7 @@ See [`docs/arch/`](docs/arch/README.md) for how downstream repos actually consum
 
 ## What's here
 
-All configuration lives in `src/`:
+All configuration lives at the repo root — not under `src/`, unlike other OEI repos. This is deliberate: ORT's default config lookup expects these exact filenames directly at the top level of whatever gets cloned via `ort-config-repository`, with no subdirectory support. See [`docs/arch/`](docs/arch/README.md) for the full explanation.
 
 | File                          | Purpose                                                                            |
 | ----------------------------- | ---------------------------------------------------------------------------------- |

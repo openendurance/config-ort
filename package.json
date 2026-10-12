@@ -10,11 +10,11 @@
 		"node": ">=24"
 	},
 	"files": [
-		"src/config.yml",
-		"src/curations.yml",
-		"src/license-classifications.yml",
-		"src/evaluator.rules.kts",
-		"src/resolutions.yml"
+		"config.yml",
+		"curations.yml",
+		"license-classifications.yml",
+		"evaluator.rules.kts",
+		"resolutions.yml"
 	],
 	"publishConfig": {
 		"access": "public",

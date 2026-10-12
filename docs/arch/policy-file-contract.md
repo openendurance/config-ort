@@ -1,8 +1,8 @@
 # Policy File Contract
 
-How the five files in `src/` relate to each other as a system — not just
-what each one does individually, but how a license goes from "detected" to
-"Approved / Flagged / Denied."
+How the five policy files at this repo's root relate to each other as a
+system — not just what each one does individually, but how a license goes
+from "detected" to "Approved / Flagged / Denied."
 
 ## Data flow
 

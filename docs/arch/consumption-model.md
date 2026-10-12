@@ -4,11 +4,11 @@ How downstream OEI repositories actually consume this repo's configuration, and 
 
 ## The two paths
 
-|                     | GitHub Actions (primary)                                                                                                                                                              | npm (secondary)                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **Mechanism**       | [`oss-review-toolkit/ort-ci-github-action`](https://github.com/oss-review-toolkit/ort-ci-github-action)'s `ort-config-repository` input clones this repo directly at a pinned git ref | `@openendurance/config-ort` published to the npm registry; files read from `node_modules`    |
-| **What it's for**   | The actual CI enforcement path — this is how license-compliance gating happens in practice                                                                                            | Any tooling that needs to read `src/*.yml`/`*.kts` directly from Node, outside of an ORT run |
-| **Versioning unit** | A git tag                                                                                                                                                                             | An npm semver version                                                                        |
+|                     | GitHub Actions (primary)                                                                                                                                                              | npm (secondary)                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Mechanism**       | [`oss-review-toolkit/ort-ci-github-action`](https://github.com/oss-review-toolkit/ort-ci-github-action)'s `ort-config-repository` input clones this repo directly at a pinned git ref | `@openendurance/config-ort` published to the npm registry; files read from `node_modules` |
+| **What it's for**   | The actual CI enforcement path — this is how license-compliance gating happens in practice                                                                                            | Any tooling that needs to read `*.yml`/`*.kts` directly from Node, outside of an ORT run  |
+| **Versioning unit** | A git tag                                                                                                                                                                             | An npm semver version                                                                     |
 
 ### GitHub Actions path (primary)
 
@@ -19,11 +19,20 @@ How downstream OEI repositories actually consume this repo's configuration, and 
       # pinned to a specific tag, e.g. @v1.2.0 — never @develop or @main
 ```
 
-The Action clones this repo at the referenced ref and makes its `config.yml`,
-`curations.yml`, `license-classifications.yml`, `evaluator.rules.kts`, and
-`resolutions.yml` available to the Analyzer/Evaluator stages automatically.
-This is the path that actually gates pull requests across OEI — if a repo's
-CI references this repo at all, it's almost certainly through this
+The Action clones this repo at the referenced ref into the directory ORT
+reads its global configuration from. ORT's own default behavior looks for
+`config.yml`, `curations.yml`, `license-classifications.yml`,
+`evaluator.rules.kts`, and `resolutions.yml` **directly at the top level**
+of that location — it does not traverse into subdirectories. This is why
+these five files live at this repo's root rather than under `src/` the way
+other OEI repos organize things: `src/config.yml` etc. is invisible to the
+Action's default lookup, and files placed there are silently never read.
+This isn't a style preference — it's a hard constraint imposed by ORT
+itself. See [ADR-0001](../adr/0001-policy-files-at-repo-root.md) for the
+full decision record, including why this was initially missed.
+
+This is the path that actually gates pull requests across OEI — if a
+repo's CI references this repo at all, it's almost certainly through this
 mechanism.
 
 **Pinning matters.** Referencing a branch (`main`, `develop`) instead of a
