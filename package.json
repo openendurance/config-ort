@@ -10,11 +10,11 @@
 		"node": ">=24"
 	},
 	"files": [
-		"src/config.yml",
-		"src/curations.yml",
-		"src/license-classifications.yml",
-		"src/evaluator.rules.kts",
-		"src/resolutions.yml"
+		"config.yml",
+		"curations.yml",
+		"license-classifications.yml",
+		"evaluator.rules.kts",
+		"resolutions.yml"
 	],
 	"publishConfig": {
 		"access": "public",
@@ -23,8 +23,8 @@
 	"scripts": {
 		"changeset": "changeset",
 		"changeset:v": "pnpm run version",
-		"format": "pnpm exec biome format --write . && pnpm exec prettier --write --ignore-unknown src",
-		"lint": "pnpm exec biome lint --files-ignore-unknown src && pnpm exec prettier --check --ignore-unknown src",
+		"format": "pnpm exec biome format --write . && pnpm exec prettier --write --ignore-unknown \"**/*.{yaml,yml,md}\"",
+		"lint": "pnpm exec biome lint . && pnpm exec prettier --check --ignore-unknown \"**/*.{yaml,yml,md}\"",
 		"pre-commit": "lint-staged",
 		"preinstall": "npx only-allow pnpm",
 		"prepare": "husky",
