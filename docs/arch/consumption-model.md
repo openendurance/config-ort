@@ -15,8 +15,8 @@ How downstream OEI repositories actually consume this repo's configuration, and 
 ```yaml
 - uses: oss-review-toolkit/ort-ci-github-action@v1
   with:
-    ort-config-repository: https://github.com/openendurance/config-ort
-    ort-config-revision: v1.2.0
+      ort-config-repository: https://github.com/openendurance/config-ort
+      # pinned to a specific tag, e.g. @v1.2.0 — never @develop or @main
 ```
 
 The Action clones this repo at the referenced ref into the directory ORT
@@ -28,8 +28,7 @@ these five files live at this repo's root rather than under `src/` the way
 other OEI repos organize things: `src/config.yml` etc. is invisible to the
 Action's default lookup, and files placed there are silently never read.
 This isn't a style preference — it's a hard constraint imposed by ORT
-itself. See [ADR-0001](../adr/0001-policy-files-at-repo-root.md) for the
-full decision record, including why this was initially missed.
+itself.
 
 This is the path that actually gates pull requests across OEI — if a
 repo's CI references this repo at all, it's almost certainly through this
@@ -61,11 +60,13 @@ actual consumer here.
 
 ## The sync risk
 
-These two paths use different version identifiers, but the configured Changesets
-workflow couples them: `changeset publish` creates the package's git tag, and
-`changesets/action@v1` creates the corresponding GitHub release from the same
-checked-out commit. They can drift only if someone publishes or tags outside
-that supported release workflow.
+These two paths are **versioned independently** — nothing technically
+enforces that an npm version and a git tag correspond to the same content.
+A release that publishes a new npm version without also tagging the
+matching commit (or vice versa) means a repo consuming via GitHub Actions
+and a repo consuming via npm could be looking at genuinely different policy
+states at the same point in time, with no error or warning from either
+side — it would just silently diverge.
 
 **At release time:** a release is only complete once both the git tag and
 the npm publish point at the same commit. The release workflow
