@@ -20,7 +20,7 @@
 /docs/                                 @openendurance/engineering
 /AGENTS.md                             @openendurance/engineering
 /CLAUDE.md                             @openendurance/engineering
-/.github/workflows/validate.yml        @openendurance/engineering
+/.github/                              @openendurance/engineering
 /.changeset/*.md                       @openendurance/engineering
 
 # Policy surface — this is what every OEI repo's CI actually reads, and
