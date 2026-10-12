@@ -15,18 +15,13 @@ If these permissions are blocked at enterprise or organization policy scope, the
 
 ## Required GitHub Actions permissions
 
-The most restrictive policy wins: Enterprise → Organization → Repository.
+The workflow-level `permissions` block below determines this job's token scopes; the enterprise, organization, and repository "Workflow permissions" choices are defaults rather than ceilings.
 
-1. Enterprise policy (if org is enterprise-managed)
-    - Allow Actions workflow token write access (not read-only enforcement).
-    - Allow GitHub Actions to create and approve pull requests.
-2. Organization settings
-    - Actions → General → Workflow permissions: Read and write permissions.
-    - Enable Allow GitHub Actions to create and approve pull requests.
-    - If repository-level overrides are needed, allow repositories to use workflow permissions.
-3. Repository settings
-    - Actions → General → Workflow permissions: Read and write permissions.
-    - Enable Allow GitHub Actions to create and approve pull requests.
+1. Enterprise and organization policy
+    - Ensure repositories may enable GitHub Actions to create pull requests.
+2. Repository settings
+    - Keep the default workflow permissions at `Read repository contents and packages`; this workflow explicitly requests only the write scopes it needs.
+    - Enable **Allow GitHub Actions to create and approve pull requests**.
 
 ## Required workflow-level permissions
 
