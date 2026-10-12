@@ -73,7 +73,7 @@ rebase, not individual amends — rewrite the range, then force-push.
 **Add DCO sign-off to existing commits:**
 
 ```sh
-git rebase --root --signoff   # or a specific base ref instead of --root
+git rebase --signoff origin/develop
 git push --force-with-lease origin <branch>
 ```
 
