@@ -4,12 +4,11 @@ ort:
         # semver ranges at scan time. Keeps results reproducible against what actually ships.
         allowDynamicVersions: false
 
-    evaluator:
-        # rules.kts deliberately uses WARNING/hint for things meant to annotate without blocking
-        # (attribution-content, weak-copyleft) and ERROR for things meant to fail the PR check
-        # (unhandled licenses, strong-copyleft). ORT's own default severity threshold for both of
-        # these is WARNING, which would silently turn every WARNING in rules.kts into a blocking
-        # failure too. Raising both to ERROR keeps actual blocking behavior matching what
-        # rules.kts intends rather than ORT's out-of-the-box default.
-        severeRuleViolationThreshold: ERROR
-        severeIssueThreshold: ERROR
+    # evaluator.rules.kts deliberately uses WARNING/hint for things meant to annotate without blocking
+    # (attribution-content, weak-copyleft) and ERROR for things meant to fail the PR check
+    # (unhandled licenses, strong-copyleft). ORT's own default severity threshold for both of
+    # these is WARNING, which would silently turn every WARNING in evaluator.rules.kts into a blocking
+    # failure too. Raising both to ERROR keeps actual blocking behavior matching what
+    # evaluator.rules.kts intends rather than ORT's out-of-the-box default.
+    severeRuleViolationThreshold: ERROR
+    severeIssueThreshold: ERROR
