@@ -23,8 +23,8 @@
 	"scripts": {
 		"changeset": "changeset",
 		"changeset:v": "pnpm run version",
-		"format": "pnpm exec biome format --write . && pnpm exec prettier --write --ignore-unknown .",
-		"lint": "pnpm exec biome lint . && pnpm exec prettier --check --ignore-unknown .",
+		"format": "pnpm exec biome format --write . && pnpm exec prettier --write --ignore-unknown \"**/*.{yaml,yml,md}\"",
+		"lint": "pnpm exec biome lint . && pnpm exec prettier --check --ignore-unknown \"**/*.{yaml,yml,md}\"",
 		"pre-commit": "lint-staged",
 		"preinstall": "npx only-allow pnpm",
 		"prepare": "husky",
