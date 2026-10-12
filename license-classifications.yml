@@ -2,8 +2,8 @@
 #
 # Primary categories are mutually exclusive — a license gets exactly one.
 # Behavioral categories are additive tags layered on top of a primary category.
-# Any SPDX id not listed under `categorizations` falls through to `unknown`
-# by omission — evaluator.rules.kts treats that as Flag, never silent Approve.
+# Any SPDX id not listed under `categorizations` falls through to
+# `UNHANDLED_LICENSE` in evaluator.rules.kts and is denied with an error.
 
 categories:
     # --- Primary categories ---
@@ -50,11 +50,6 @@ categories:
       description: >
           Project-scoped copyleft (GPL, AGPL). Denied by default for OEI's
           Apache-2.0 library/platform code.
-
-    - name: unknown
-      description: >
-          Default bucket for anything not explicitly categorized below. Always
-          flagged — never silently approved or denied.
 
     # --- Behavioral (additive) categories ---
     - name: include-in-notice-file
