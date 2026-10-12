@@ -60,7 +60,7 @@ Once an ADR is `Accepted`:
 
 - Its context, decision, and consequences are frozen
 - Corrections to factual errors are permitted with a dated note
-- If a decision is reversed, open a new ADR with status `Superseded by ADR-NNNN` and update the original's status field only
+- If a decision is reversed, open a new ADR and progress it through normal statuses (`Proposed` -> `Accepted`); then update the original ADR status to `Superseded by ADR-NNNN`
 
 ## Update Contract
 
