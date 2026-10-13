@@ -1,5 +1,13 @@
 # @openendurance/config-ort
 
+## 0.1.1
+
+### Patch Changes
+
+- [#10](https://github.com/openendurance/config-ort/pull/10) [`66942f9`](https://github.com/openendurance/config-ort/commit/66942f9a770304b15d4b76a0e4607335c4a3beca) Thanks [@kcargile](https://github.com/kcargile)! - Switch npm publishing to trusted publishing (OIDC) and remove NPM_TOKEN usage from release workflow.
+
+- [#10](https://github.com/openendurance/config-ort/pull/10) [`66942f9`](https://github.com/openendurance/config-ort/commit/66942f9a770304b15d4b76a0e4607335c4a3beca) Thanks [@kcargile](https://github.com/kcargile)! - Explicitly configure Changesets to create GitHub Releases alongside npm publishes, and add operations documentation for the GitHub Actions permissions used by the release workflow.
+
 ## 0.1.0
 
 ### Minor Changes
