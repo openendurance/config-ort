@@ -31,6 +31,14 @@ The release workflow should keep job permissions that include:
 - pull-requests: write
 - id-token: write
 
+## npm trusted publishing requirement
+
+This repository publishes to npm using trusted publishing (OIDC), not an npm token.
+
+- In npm package settings, configure `@openendurance/config-ort` with GitHub as a trusted publisher for this repository and workflow.
+- Do not set an `NPM_TOKEN` secret for this workflow.
+- Keep `id-token: write` in the workflow permissions so npm can verify GitHub's OIDC identity at publish time.
+
 Reference: [.github/workflows/release.yml](../../.github/workflows/release.yml)
 
 ## Expected successful outcomes
