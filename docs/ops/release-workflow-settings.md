@@ -38,6 +38,7 @@ This repository publishes to npm using trusted publishing (OIDC), not an npm tok
 - In npm package settings, configure `@openendurance/config-ort` with GitHub as a trusted publisher for this repository and workflow.
 - Do not set an `NPM_TOKEN` secret for this workflow.
 - Keep `id-token: write` in the workflow permissions so npm can verify GitHub's OIDC identity at publish time.
+- Ensure `package.json` includes a `repository.url` that exactly matches this GitHub repository (`https://github.com/openendurance/config-ort`). npm uses this for trusted publisher validation.
 
 Reference: [.github/workflows/release.yml](../../.github/workflows/release.yml)
 

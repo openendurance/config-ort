@@ -5,6 +5,10 @@
 	"license": "Apache-2.0",
 	"author": "Kristopher Cargile <k@algorythmic.com>",
 	"description": "Shared OSS Review Toolkit (ORT) license-compliance configuration for Open Endurance Initiative repositories.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/openendurance/config-ort"
+	},
 	"packageManager": "pnpm@11.22.0",
 	"engines": {
 		"node": ">=24"
