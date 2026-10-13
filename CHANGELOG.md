@@ -1,5 +1,11 @@
 # @openendurance/config-ort
 
+## 0.1.2
+
+### Patch Changes
+
+- [#13](https://github.com/openendurance/config-ort/pull/13) [`261a05f`](https://github.com/openendurance/config-ort/commit/261a05f6409ea96149c85df7978a52ab7002509f) Thanks [@kcargile](https://github.com/kcargile)! - Clean up Renovate package rules by removing copied core-specific entries that do not apply to this repository. Keep only generic devDependency minor and patch grouping, with patch updates auto-merged on the configured schedule.
+
 ## 0.1.1
 
 ### Patch Changes
