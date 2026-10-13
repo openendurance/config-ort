@@ -7,7 +7,7 @@
 	"description": "Shared OSS Review Toolkit (ORT) license-compliance configuration for Open Endurance Initiative repositories.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/openendurance/config-ort.git"
+		"url": "https://github.com/openendurance/config-ort"
 	},
 	"packageManager": "pnpm@11.22.0",
 	"engines": {
