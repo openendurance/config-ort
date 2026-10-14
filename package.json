@@ -6,12 +6,13 @@
 	"author": "Kristopher Cargile <k@algorythmic.com>",
 	"description": "Shared OSS Review Toolkit (ORT) license-compliance configuration for Open Endurance Initiative repositories.",
 	"keywords": [
+		"endurance-sports",
+		"fitness",
+		"healthtech",
+		"oei",
+		"open-endurance-initiative",
 		"open-source",
-		"oss",
-		"ort",
-		"license-compliance",
-		"openenduranceinitiative",
-		"open-endurance-initiative"
+		"openenduranceinitiative"
 	],
 	"repository": {
 		"type": "git",
