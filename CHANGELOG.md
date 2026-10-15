@@ -1,5 +1,11 @@
 # @openendurance/config-ort
 
+## 0.1.3
+
+### Patch Changes
+
+- [#16](https://github.com/openendurance/config-ort/pull/16) [`0254d7e`](https://github.com/openendurance/config-ort/commit/0254d7e56083efbf11d9bbebd2ec55b6aec5ab19) Thanks [@kcargile](https://github.com/kcargile)! - Add repository metadata required by npm trusted publishing validation and document the requirement in release workflow runbook guidance.
+
 ## 0.1.2
 
 ### Patch Changes
