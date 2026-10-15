@@ -4,6 +4,7 @@
 !.env.sample
 .keys
 .old
+.turbo
 .wip
 node_modules/
 pnpm-lock.yaml.old

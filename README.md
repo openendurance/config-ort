@@ -41,3 +41,13 @@ Branching follows the org-wide [GitHub Flow standard](https://github.com/openend
 ## License
 
 Apache-2.0 — see [`LICENSE`](LICENSE). Community standards and reporting process are defined at the [org level](https://github.com/openendurance/.github).
+
+---
+
+<div align="center">
+	Made with 💙 in Colorado, USA
+</div>
+<br />
+<div align="center">
+	Copyright © 2026 <a href="https://algorythmic.com">Algorythmic, LLC</a>
+</div>

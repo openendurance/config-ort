@@ -11,7 +11,13 @@
 		"**/.git": true,
 		"**/.DS_Store": true
 	},
-	"cSpell.words": ["Cargile", "curations", "openendurance"],
+	"cSpell.words": [
+		"Cargile",
+		"curations",
+		"healthtech",
+		"openendurance",
+		"openenduranceinitiative"
+	],
 	"json.schemaDownload.trustedDomains": {
 		"https://json.schemastore.org/": true,
 		"https://unpkg.com/@changesets": true
