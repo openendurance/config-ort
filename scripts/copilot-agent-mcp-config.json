@@ -1,0 +1,19 @@
+{
+	"mcpServers": {
+		"drawio": {
+			"type": "http",
+			"url": "https://mcp.draw.io/mcp",
+			"tools": ["create_diagram"]
+		},
+		"mermaid": {
+			"type": "http",
+			"url": "https://mcp.mermaid.ai/mcp",
+			"tools": [
+				"validate_and_render_mermaid_diagram",
+				"get_diagram_title",
+				"get_diagram_summary",
+				"list_tools"
+			]
+		}
+	}
+}
